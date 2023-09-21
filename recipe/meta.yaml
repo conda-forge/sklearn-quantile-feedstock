@@ -1,5 +1,5 @@
 {% set name = "sklearn-quantile" %}
-{% set version = "0.0.25" %}
+{% set version = "0.0.26" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/sklearn_quantile-{{ version }}.tar.gz
-  sha256: ff508a0fdfffbf2736b130b267e6bc48f0777aea494cb92e4c2bb0e723a8f266
+  sha256: dd2241b0088dbf35290b6014fb6ce2e548db8db37c6c1deb71ec04560a7297e9
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
