@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{name[0]}/{name}/{name}-{version}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/sklearn_quantile-{version}.tar.gz
   sha256: cb0babce2655878ce3d77bf98e8b881c69624adb8e6fa632831842afeafff10e
 
 build:
