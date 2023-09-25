@@ -24,7 +24,7 @@ requirements:
     - setuptools
   run:
     - python
-    - scikit-learn>=1.0
+    - scikit-learn >=1.0
     - packaging
     - {{ pin_compatible('numpy') }}
     - joblib
