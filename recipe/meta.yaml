@@ -15,7 +15,7 @@ build:
 
 requirements:
   build:
-    - skip: true  # [py<39]
+    skip: true  # [py<39]
     - {{ compiler('c') }}
   host:
     - cython
