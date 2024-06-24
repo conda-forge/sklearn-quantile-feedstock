@@ -13,16 +13,23 @@ source:
 build:
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
+  skip: true  # [py<39]
+  skip: true  # [python_impl == "pypy"]
 
 requirements:
   build:
-#    - skip: true  # [py<39]
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - cython >=0.29.21                       # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
-#    - {{ stdlib('c') }}
+    - {{ compiler('cxx') }}
   host:
-    - cython
-    - pip
     - python
+    - cython >=0.29.21
+    - pip
+    - numpy
     - setuptools >=68
   run:
     - python
