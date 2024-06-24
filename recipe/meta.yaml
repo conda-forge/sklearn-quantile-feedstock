@@ -1,34 +1,37 @@
 {% set name = "sklearn-quantile" %}
-{% set version = "0.0.29" %}
+{% set py_name = "sklearn_quantile" %}
+{% set version = "0.0.32" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 27d49b5b63a085fbd2b18dbd6a99a72e2235413baeb247463acb73b168c3a4cd
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ py_name }}-{{ version }}.tar.gz
+  sha256: ff8f2e6f3008f574ed03529a1ed9721329b8492721dd742792fc975985186ae3
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+  skip: true  # [py<39]
+  skip: true  # [python_impl == "pypy"]
 
 requirements:
   build:
-    - skip: true  # [py<39]
     - {{ compiler('c') }}
   host:
-    - cython
-    - numpy
-    - pip
     - python
-    - setuptools
+    - setuptools >=68
+    - wheel
+    - numpy <2
+    - cython >=0.29.21
+    - pip
   run:
     - python
-    - scikit-learn >=1.0
+    - scikit-learn >=1.4
+    - joblib
     - packaging
     - {{ pin_compatible('numpy') }}
-    - joblib
 
 test:
   imports:
