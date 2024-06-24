@@ -18,7 +18,7 @@ requirements:
   build:
 #    - skip: true  # [py<39]
     - {{ compiler('c') }}
-    - {{ stdlib('c') }}
+#    - {{ stdlib('c') }}
   host:
     - cython
     - pip
