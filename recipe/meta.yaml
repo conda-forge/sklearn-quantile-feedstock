@@ -19,15 +19,16 @@ requirements:
 #    - skip: true  # [py<39]
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
+  host:
     - cython
     - pip
     - python
-    - setuptools
+    - setuptools >=68
   run:
     - python
     - scikit-learn >=1.4
     - packaging
-    - numpy
+    - {{ pin_compatible('numpy') }}
     - joblib
 
 test:
