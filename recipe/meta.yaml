@@ -19,11 +19,12 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
   host:
     - python
     - setuptools >=68
     - wheel
-    - numpy >=1.22.3
+    - numpy <2
     - cython >=0.29.21
     - pip
   run:
