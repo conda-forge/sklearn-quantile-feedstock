@@ -1,5 +1,5 @@
 {% set name = "sklearn-quantile" %}
-{% set version = "0.0.29" %}
+{% set version = "0.0.32" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 27d49b5b63a085fbd2b18dbd6a99a72e2235413baeb247463acb73b168c3a4cd
+  sha256: ff8f2e6f3008f574ed03529a1ed9721329b8492721dd742792fc975985186ae3
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -25,7 +25,7 @@ requirements:
     - setuptools
   run:
     - python
-    - scikit-learn >=1.0
+    - scikit-learn >=1.4
     - packaging
     - {{ pin_compatible('numpy') }}
     - joblib
