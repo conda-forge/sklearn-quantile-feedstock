@@ -18,18 +18,18 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
+    - {{ compiler("c") }}
     - {{ stdlib("c") }}
   host:
     - python
     - setuptools >=68
     - wheel
-    - numpy <2
-    - cython >=0.29.21
+    - numpy >=2
+    - cython >=3.0.10
     - pip
   run:
     - python
-    - scikit-learn >=1.4
+    - scikit-learn >=1.5
     - joblib
     - packaging
     - {{ pin_compatible('numpy') }}
